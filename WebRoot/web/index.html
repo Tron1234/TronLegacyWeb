@@ -1,0 +1,633 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>index.html</title>
+
+<meta name="keywords" content="keyword1,keyword2,keyword3">
+<meta name="description" content="this is my page">
+<meta name="content-type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="../css/reset.css" />
+<link rel="stylesheet" type="text/css" href="../css/willesPlay.css" />
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+<link type="text/css" rel="Stylesheet" href="../css/imageflow.css" />
+<link rel="stylesheet" href="../css/video-js.min.css">
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/imageflow.js"></script>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/willesPlay.js"></script>
+<script src="../js/video.min.js"></script>
+<script src="../js/zh-CN.js"></script>
+<style type="text/css">
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('../fonts/glyphicons-halflings-regular.eot');
+  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+body {
+	background-color: #262626;
+	font-family: 'Glyphicons Halflings';
+}
+
+.container {
+	width: 85%;
+}
+
+#header {
+	margin-top: -20px;
+	height: 420px;
+	padding: 10px 0;
+	background: black;
+	height: 420px;
+}
+
+a:hover, a:focus {
+	text-decoration: none
+}
+
+.nav.avbar-inverse {
+	position: relative;
+}
+
+.nav-btn {
+	position: absolute;
+	right: 20px;
+	top: 20px;
+}
+
+aside {
+	padding: 20px 0;
+	margin-left: -15px;
+	background: black;
+	transition: 0.2s ease-out;
+	/*动画效果的执行方式是ease-out，即侧边栏滑动效果为渐变式，而不是生硬的突然变化*/
+}
+
+aside>h2 {
+	color: white;
+	text-align: center;
+	font-size: 2em;
+}
+
+/*控制侧边栏进出的按钮（外部包裹）*/
+#wrap {
+	margin-left: 20px;
+	padding: 10px;
+	transition: 0.2s ease-out;
+}
+
+a {
+	text-decoration: none;
+}
+
+#sideul li:hover {
+	color: white;
+}
+
+#sideul li {
+	list-style: none;
+	color: #A5A5A5;
+	width: 100%;
+	height: 1.8em;
+	font-size: 1.5em;
+	text-align: center;
+}
+
+#introduce {
+	padding: 20px 0;
+}
+
+.label {
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 2.5;
+	vertical-align: center;
+	margin-left: 23%;
+	border-radius: 4px;
+}
+
+.btn {
+	margin-top: 3px;
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 1;
+	vertical-align: center;
+	margin-left: 35%;
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:active.focus,
+	.btn.active.focus {
+	outline: 0;
+	outline-offset: 0;
+}
+
+#introduce {
+	border-bottom: 5px solid #504B4B;
+}
+
+#movie {
+	margin-top: 30px;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus
+	{
+	color: white;
+	background-color: #ef6a6c;
+}
+
+.nav>li>a:hover, .nav>li>a:focus {
+	background-color: #3D3D3D;
+}
+
+.m {
+	margin-top: 10px;
+}
+
+#wallpaper {
+	margin-top: 70px;
+	padding-top: 10px;
+	border-top: 5px solid #504B4B;
+}
+
+#game {
+	border-top: 5px solid #504B4B;
+	padding-top: 10px;
+}
+
+.img-thumbnail {
+	margin: 20px 0;
+}
+
+.alert-link {
+	font-size: 20px;
+}
+
+#contact {
+	border-top: 5px solid #504B4B;
+	padding-top: 15px;
+}
+
+.input-group-btn {
+	padding-left: 4px;
+}
+
+#footer {
+	margin: 20px 0;
+	border-top: 3px solid #504B4B;
+	border-bottom: 3px solid #504B4B;
+	height: 30px;
+	background-color: black;
+	margin-left: 16%;
+}
+
+.add_transform {
+	transform: rotate(4320deg);
+	-ms-transform: rotate(4320deg); /* IE 9 */
+	-moz-transform: rotate(4320deg); /* Firefox */
+	-webkit-transform: rotate(4320deg); /* Safari 和 Chrome */
+	-o-transform: rotate(4320deg); /* Opera */
+	transition: all 1.5s ease-in-out;
+	-moz-transition: all 1.5s ease-in-out; /* Firefox 4 */
+	-webkit-transition: all 1.5s ease-in-out; /* Safari 和 Chrome */
+	-o-transition: all 1.5s ease-in-out; /* Opera */
+}
+</style>
+<script type="text/javascript">
+	var imgArray = new Array("../images/introduce-logo1.jpg", "../images/introduce-logo2.jpg", "../images/introduce-logo3.jpg", "../images/introduce-logo4.jpg");
+	var index = 1;
+	setInterval(function() {
+		$("#img1").attr("src", imgArray[index]);
+		if (index >= imgArray.length) {
+			index = 0;
+		} else {
+			index++;
+		}
+	}, 2000);
+	$(function() {
+		$('[data-toggle="popover"]').popover();
+		$('#backTop').click(function() {
+			$('html,body').animate({
+				scrollTop : '0px'
+			}, 800);
+			$("#circle").addClass("add_transform");
+		});
+		$("#circle").mouseleave(function() {
+			$("#circle").removeClass("add_transform");
+		});
+	});
+
+
+	function judge() {
+		if ($("#exampleInputName2").val() != "" && $("#exampleInputEmail2").val() != "" && $("#textarea").val() != "") {
+			$("#submit").attr('disabled', false);
+		} else {
+			$("#exampleInputName2").attr("placeholder", "此项不能为空!");
+			$("#exampleInputEmail2").attr("placeholder", "此项不能为空!");
+			$("#textarea").attr("placeholder", "此项不能为空!");
+			$("#submit").attr('disabled', true);
+		}
+	}
+	function info() {
+		if ($("#exampleInputName2").val() != null && $("#exampleInputEmail2").val() != null) {
+			alert("提交成功,我们会根据您的意见进行改进,谢谢您的参与!");
+		}
+	}
+</script>
+</head>
+
+<body>
+	<embed src="../music/Daft Punk - The Grid.mp3" width="0" height="0"
+		loop="-1" autostart="true">
+	<div class="container" id="container">
+		<div id="header">
+			<div id="LoopDiv">
+				<input id="S_Num" type="hidden" value="5" />
+				<div id="starsIF" class="imageflow">
+					<img src="../images/top01.jpg" longdesc="#" width="533px"
+						height="400px" alt="Picture" /> <img src="../images/top02.jpg"
+						longdesc="#" width="533px" height="400px" alt="Picture" /> <img
+						src="../images/top03.jpg" longdesc="#" width="533px"
+						height="400px" alt=" Picture" /> <img src="../images/top04.jpg"
+						longdesc="#" width="533px" height="400px" alt=" Picture" /> <img
+						src="../images/top05.jpg" longdesc="#" width="533px"
+						height="400px" alt=" Picture" />
+				</div>
+			</div>
+		</div>
+
+		<div id="body">
+			<div class="col-md-2">
+				<aside>
+					<h2>主菜单</h2>
+					<br />
+					<ul id="sideul">
+						<a href="#introduce">
+							<li>电影介绍</li>
+						</a>
+						<a href="#movie">
+							<li>电影</li>
+						</a>
+						<a href="#wallpaper">
+							<li>图片</li>
+						</a>
+						<a href="#game">
+							<li>游戏</li>
+						</a>
+						<a href="#contact">
+							<li>联系我们</li>
+						</a>
+					</ul>
+				</aside>
+
+			</div>
+			<div class="col-md-10">
+				<div id="introduce">
+					<div class="media">
+						<div class="media-left">
+							<img class="media-object" id="img1"
+								src="../images/introduce-logo1.jpg"> <span
+								class="label label-info">电影海报</span>
+						</div>
+						<div class="media-body">
+						<h2 style="color: white;margin-top: 0">电影简介</h2>
+							<h4 class="media-heading"
+								style="color:white;line-height: 40px;text-indent: 2em;">《创：战纪》是1982年经典科幻片《电子世界争霸战》的续集，由约瑟夫·科金斯基执导，加内特·赫德兰、奥利维亚·维尔德、杰夫·布里奇斯和迈克尔·辛等联袂出演。</h4>
+							<h4 style="color:white;line-height: 40px;text-indent: 2em;">影片讲述的是20世纪80年代，电子软体天才凯文·弗林创建了英康公司，将人类带入一个全新的时代。可是在辉煌的时代开创不久后，凯文神秘失踪。在此之后，凯文年幼的儿子萨姆继承了父亲的位置，实际工作则由其他工作人员主持。萨姆天资聪颖，充满冒险精神，经常给英康的高层们惹来麻烦。</h4>
+							<a tabindex="0" role="button" class="btn btn-danger"
+								data-toggle="popover" data-trigger="focus" title="剧情介绍"
+								data-content="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;著名的电脑游戏开发名家凯文·弗林（杰夫·布里吉斯饰）在开创自己最新游戏的过程中离奇失踪，多年之后他的儿子——27岁的科技天才萨姆·弗林（加内特·赫德兰饰）进入父亲封闭多年的办公室寻找父亲失踪的真相。他找到了父亲工作的密室和电脑，在一系列键盘操作之后萨姆发现自己神奇的被数字化，进入了父亲创造的电子网络游戏世界。在这里凯文被当作程序被迫参加了一场场惊心动魄，生死一线的游戏大战，还惊奇地发现父亲在电子网络世界创造的一个“替身”——克鲁（杰夫·布里吉斯饰）居然想置他于死地。
+在危急时刻萨姆被一位突然出现名叫“葵拉”的女战士救走，并在一个隐蔽住所重遇被困在电子网络里20年的父亲。原来凯文·弗林在开发这一足以改变人类世界的电子网络世界过程中创造的“替身”克鲁背叛了他，克鲁控制整个电子网络世界，使他无法从关口回到人类世界。萨姆坚持要父亲和他一起重回现实世界，但是他们面对的是几乎无所不能的“克鲁”，还有“克鲁”妄图从电子世界关口进入和控制人类现实世界的惊天阴谋，父子俩和葵拉一起为了回家，为了阻止“克鲁”将要带给人类的灾难，在步步危机的电子网络世界展开了一段生死大历险  。">详细介绍</a>
+
+							<button type="button" class="btn btn-warning" data-toggle="modal"
+								data-target="#myModal">演员介绍</button>
+							<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+								aria-labelledby="myModalLabel">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal"
+												aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+											<h4 class="modal-title" id="myModalLabel">演员介绍</h4>
+										</div>
+										<div class="modal-body">
+											<div class="media">
+												<div class="media-left media-middle">
+													<a href="#"> <img class="media-object"
+														src="../images/introduce-logo3.jpg" alt="...">
+													</a>
+												</div>
+												<div class="media-body">
+													<h3 class="media-heading">凯文·弗林(杰夫·布里奇斯饰)</h3>
+													<p style="text-indent: 2em;font-size: 16px;">一个天才的电脑编程大师，在游戏程序开发领域可谓是开创性的先行者，他开发出了虚拟数字世界的游戏“电子网络”。他让英康公司一举成为电子游戏领域的龙头老大，接着就在1989年毫无声息的神秘失踪。天才的游戏程序大师凯文·弗林希望，无论在虚拟世界还是现实世界，都能做到尽善尽美。在他研发的游戏“电子网络”中，他成了第一个能够进入神奇的数字虚拟世界的真人，他希望能找到一种方法，真正将电子世界和现实世界连接起来。基于这样的思考，他研发出了高端程序克鲁2.0。</p>
+												</div>
+											</div>
+
+											<div class="media">
+												<div class="media-left media-middle">
+													<a href="#"> <img class="media-object"
+														src="../images/actor1.jpg" alt="...">
+													</a>
+												</div>
+												<div class="media-body">
+													<h3 class="media-heading">萨姆·弗林(加莱特·赫德兰饰)</h3>
+													<p style="text-indent: 2em;font-size: 16px;">凯文·弗林唯一的儿子，是一个爱冒险，又颇有点儿叛逆精神的27岁青年，他早已经厌倦了英康公司的薪酬，并一直为父亲的失踪纠结不堪。凯文·弗林唯一的儿子萨姆出生在1983年。从儿子出生到1989年凯文失踪，这对父子的关系始终融洽而亲密。对萨姆来说，父亲凯文就是他的一切。就好像是命中注定，萨姆成了和父亲一样对传统观念十分叛逆的孩子，他沿着父亲的足迹成长起来。</p>
+												</div>
+											</div>
+
+											<div class="media">
+												<div class="media-left media-middle">
+													<a href="#"> <img class="media-object"
+														src="../images/actor2.jpg" alt="...">
+													</a>
+												</div>
+												<div class="media-body">
+													<h3 class="media-heading">克鲁(杰夫·布里奇斯饰)</h3>
+													<p style="text-indent: 2em;font-size: 16px;">凯文·弗林按照自己的形象创造的主控程序。他可以用来监测，防止数字虚拟世界无限制膨胀，但是这个人物最终脱离了主控程序的控制变成了邪恶的力量，并控制了“电子网络”的虚拟世界和这个世界里的居民。凯文·弗林最初设计出克鲁程序，只是为了帮助自己找到一个证明，而证明这个网络天才价值的最好方法就是向他的老板索赔。</p>
+												</div>
+											</div>
+
+											<div class="media">
+												<div class="media-left media-middle">
+													<a href="#"> <img class="media-object"
+														src="../images/actor3.jpg" alt="...">
+													</a>
+												</div>
+												<div class="media-body">
+													<h3 class="media-heading">葵拉(奥利维亚·维尔德饰)</h3>
+													<p style="text-indent: 2em;font-size: 16px;">葵拉从某种意义上可以说是凯文·弗林为自己设计的一套自我拯救的程序，她是凯文·弗林的红粉知己，勇敢而坚强，最终把他从流亡中解救出来。程序葵拉就像是弗林的女儿一样，他是弗林最好的朋友，聪明、好奇，有点好事，喜欢打听别人的隐私，但同时她也很有战斗力，能够毫不费力的消灭对手。弗林教会了葵拉学习了解电脑内外的世界，而葵拉对弗林则保持着高度的忠诚。</p>
+												</div>
+											</div>
+
+
+											<div class="media">
+												<div class="media-left media-middle">
+													<a href="#"> <img class="media-object"
+														src="../images/actor4.jpg" alt="...">
+													</a>
+												</div>
+												<div class="media-body">
+													<h3 class="media-heading">克斯特(迈克尔·辛饰)</h3>
+													<p style="text-indent: 2em;font-size: 16px;">一个会随机应变，又谎话连篇的程序，他经营着电子世界的“终点”俱乐部。影片中叫做克斯特的程序是一个靠信息积累起财富，又有着非凡的适应能力，能不断随着环境的改变而改变的家伙。特殊的信息组合让他拥有了一间在虚拟世界里的小酒吧，他就是这个叫做“终点”的小酒吧的管理者，在“电子网络”的游戏中，他像水银一样无孔不入，他很狡猾、八面玲珑，甚至有些聪明得让人觉得靠不住，克斯特想要取悦与每一个人，他不放过任何一个能为他赢得财富的机会，在每一笔交易中，他都要赢，不管对方是朋友还是敌人，他都是利益至上。他衡量的行为准则的唯一标准就是你能付出的酬劳。</p>
+												</div>
+											</div>
+
+											<div class="media">
+												<div class="media-left media-middle">
+													<a href="#"> <img class="media-object"
+														src="../images/actor5.jpg" alt="...">
+													</a>
+												</div>
+												<div class="media-body">
+													<h3 class="media-heading">赛尔瑞·詹穆(碧尔·加勒特饰)</h3>
+													<p style="text-indent: 2em;font-size: 16px;">詹穆是最重要的一个赛尔瑞程序，她就像希腊神话里的赛尔瑞神一样美丽。在“电子网络”的虚拟格斗游戏里，她负责引导斗争开始。詹穆程序是赛尔瑞程序组中的一个，她们的使命就是准备引导其他的程序发起对“电子网络”主控程序的挑战。为他们提供装备和光盘(这在萨姆的事件中表现得尤为突出)。他们经常是你在虚拟世界中见到的最后一个友好的程序，如果她们出现了，那就是说很不幸，你在游戏中已经完蛋了。</p>
+												</div>
+											</div>
+
+											<div class="media">
+												<div class="media-left media-middle">
+													<a href="#"> <img class="media-object"
+														src="../images/actor6.jpg" alt="...">
+													</a>
+												</div>
+												<div class="media-body">
+													<h3 class="media-heading">艾伦·布拉德利(布鲁斯·鲍克斯雷特纳饰)</h3>
+													<p style="text-indent: 2em;font-size: 16px;">凯文·弗林黄金时代的最佳搭档，但后来却被英康公司解雇，他曾经在凯文失踪后，代替凯文做萨姆的监护人。在商言商，对未来的展望最好始终抱着谨慎的态度，不然，昨天的天才可能就会被今天的企业抛弃。大约30年前，艾伦·布拉德利对英康公司来说是一个非常有前途的电脑程序员。但自从凯文·弗林失踪后，他开始逐步失去他对公司董事会的控制力，他们甚至把他视为必须尽快踢出局的家伙。</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="movie">
+					<div>
+						<!-- Nav tabs -->
+						<ul class="nav nav-tabs" role="tablist">
+							<li role="presentation" class="active"><a href="#home"
+								aria-controls="home" role="tab" data-toggle="tab"
+								style="font-weight: bold;font-size: 25px;color:white;">创:战纪</a></li>
+							<li role="presentation"><a href="#profile"
+								aria-controls="profile" role="tab" data-toggle="tab"
+								style="font-weight: bold;font-size: 25px;color:white;">电子世界争霸战</a></li>
+						</ul>
+
+						<!-- Tab panes -->
+						<div class="tab-content">
+							<div role="tabpanel" class="tab-pane active" id="home">
+
+								<div id="willesPlay">
+									<div class="playContent">
+										<div class="turnoff">
+											<ul>
+												<li><a href="javascript:;" title="关灯"
+													class="btnLight on glyphicon glyphicon-sunglasses"></a></li>
+											</ul>
+										</div>
+										<video width="100%" height="100%" id="playVideo">
+											<source src="../movies/创：战记_bd.mp4" type="video/mp4"></source>
+										</video>
+										<div class="playTip glyphicon glyphicon-play"></div>
+									</div>
+									<div class="playControll">
+										<div class="playPause playIcon"></div>
+										<div class="timebar">
+											<span class="currentTime">0:00:00</span>
+											<div class="progress">
+												<div
+													class="progress-bar progress-bar-danger progress-bar-striped"
+													role="progressbar" aria-valuemin="0" aria-valuemax="100"
+													style="width: 0%"></div>
+											</div>
+											<span class="duration">0:00:00</span>
+										</div>
+										<div class="otherControl">
+											<span class="volume glyphicon glyphicon-volume-down"></span>
+											<span class="fullScreen glyphicon glyphicon-fullscreen"></span>
+											<div class="volumeBar">
+												<div class="volumewrap">
+													<div class="progress">
+														<div class="progress-bar progress-bar-danger"
+															role="progressbar" aria-valuemin="0" aria-valuemax="100"
+															style="width: 8px;height: 40%;"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+							<div role="tabpanel" class="tab-pane" id="profile">
+								<div class="m">
+									<video id="my-video" class="video-js" controls preload="auto"
+										data-setup="{}">
+										<source src="../movies/电子世界争霸战_bd.mp4" type="video/mp4">
+									</video>
+
+
+								</div>
+
+
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+				<div id="wallpaper">
+					<span class="label label-warning" style="margin-left: 10px;">图片展示</span>
+					<div class="jumbotron">
+
+						<div class="row">
+							<div class="col-xs-6 col-md-3">
+								<a href="../images/picture1_pure.jpg" target="_black"><img
+									class="img-thumbnail" src="../images/picture1.png" alt="..."
+									width="190px"></a>
+							</div>
+							<div class="col-xs-6 col-md-3">
+								<a href="../images/picture2_pure.jpg" target="_black"><img
+									class="img-thumbnail" src="../images/picture2.png" alt="..."
+									width="190px"></a>
+							</div>
+							<div class="col-xs-6 col-md-3">
+								<a href="../images/picture3_pure.jpg" target="_black"><img
+									class="img-thumbnail" src="../images/picture3.png" alt="..."
+									width="190px"></a>
+							</div>
+							<div class="col-xs-6 col-md-3">
+								<a href="../images/picture4_pure.jpg" target="_black"><img
+									class="img-thumbnail" src="../images/picture4.png" alt="..."
+									width="190px"></a>
+							</div>
+							<div class="col-xs-6 col-md-3">
+								<a href="../images/picture5_pure.jpg" target="_black"><img
+									class="img-thumbnail" src="../images/picture5.png" alt="..."
+									width="190px"></a>
+							</div>
+							<div class="col-xs-6 col-md-3">
+								<a href="../images/picture6_pure.jpg" target="_black"><img
+									class="img-thumbnail" src="../images/picture6.png" alt="..."
+									width="190px"></a>
+							</div>
+							<div class="col-xs-6 col-md-3">
+								<a href="../images/picture7_pure.jpg" target="_black"><img
+									class="img-thumbnail" src="../images/picture7.png" alt="..."
+									width="190px"></a>
+							</div>
+							<div class="col-xs-6 col-md-3">
+								<a href="../images/picture8_pure.jpg" target="_black"><img
+									class="img-thumbnail" src="../images/picture8.png" alt="..."
+									width="190px"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="game">
+					<span class="label label-success" style="margin-left:10px;">相关游戏</span>
+					<div class="alert alert-danger" role="alert"
+						style="margin-top: 10px;font-size: 20px;">It is not
+						perfect,perfect forever uncommon.Perhaps,perfect is in sight.</div>
+
+					<div class="row">
+						<div class="col-sm-6 col-md-4">
+							<div class="thumbnail">
+								<img src="../images/game1.png" alt="...">
+								<div class="caption">
+									<h3>创战纪对决</h3>
+									<p style="text-indent: 2em;">创战纪是1982年经典科幻片《电子世界争霸战》的续集，继承了老版中的科幻概念和视觉元素，并结合最顶尖的CG和3D技术，如今这部科幻电影被做成了这个3D对战游戏，在游戏里你可以任选男女主角挑战各路英杰。全新的UNITY引擎，高品质的3D画面，流畅的游戏环境，更有激动人心的音乐背景，一切的一切尽在创战纪对决中。</p>
+									<p>
+										<a href="http://www.4399.com/flash/103929_4.htm"
+											class="btn btn-primary" role="button" target="_black">开始游戏</a>
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-6 col-md-4">
+							<div class="thumbnail">
+								<img src="../images/game2.png" alt="...">
+								<div class="caption">
+									<h3>创战纪光影摩托</h3>
+									<p style="text-indent: 2em;">创战纪是1982年经典科幻片《电子世界争霸战》的续集，继承了老版中的科幻概念和视觉元素，并结合最顶尖的CG和3D技术，如今，这部巨作被搬上了我们的unity游戏平台，极致的3D体验，绚丽的光影效果，你都不得不赞叹这款游戏的魅力，尤其主人公的那辆摩托车，相信一定让你大呼过瘾。</p>
+									<p>
+										<a href="http://www.4399.com/flash/104416_2.htm"
+											class="btn btn-primary" role="button" target="_black">开始游戏</a>
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-6 col-md-4">
+							<div class="thumbnail">
+								<img src="../images/game3.png" alt="...">
+								<div class="caption">
+									<h3>创战纪之崛起</h3>
+									<p style="text-indent: 2em;">围绕虚拟世界中的贝克展开，贝克是反抗组织的首领，一心想从邪恶统治者克鲁和泰尔萨将军的手下解放虚拟世界。为达到这个目标，他必须接受安全程序创的训练，吸收创人格的贝克也将成为下一任虚拟世界的守护者。游戏画面很炫，动作流畅，喜欢科幻冒险游戏的同学可别错过了。</p>
+									</br>
+									<p>
+										<a href="http://www.4399.com/flash/90415_3.htm"
+											class="btn btn-primary" role="button" target="_black">开始游戏</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="alert alert-info" role="alert">
+						<h3 style="margin-top: 0;">大型游戏</h3>
+						<span class="alert-link">特隆：进化 (Tron Evolution)</span> <a
+							href="http://www.ali213.net/zt/tronevolution/" target="_black"
+							style="font-size: 15px">http://www.ali213.net/zt/tronevolution/</a>
+						</br> <span class="alert-link">特隆：奔跑/r (Tron Run/r)</span> <a
+							href="http://www.ali213.net/zt/trr/" target="_black"
+							style="font-size: 15px">http://www.ali213.net/zt/trr/</a>
+					</div>
+
+				</div>
+				<div id="contact">
+					<span class="label label-danger" style="margin:0 10px;">联系我们</span>
+					<div class="row" style="margin-top: 10px;">
+						<form class="form-inline" onsubmit="info();">
+							<div class="col-lg-4">
+								<div class="form-group">
+									<label style="font-size: 22px;color:white;"
+										for="exampleInputName2">姓名:</label> <input type="text"
+										class="form-control" id="exampleInputName2" onblur="judge();"
+										style="margin-top:-5px;" placeholder="张三">
+								</div>
+							</div>
+
+							<div class="col-lg-4">
+								<div class="form-group">
+									<label for="exampleInputEmail2"
+										style="font-size: 22px;color:white;">邮箱:</label> <input
+										type="email" class="form-control" id="exampleInputEmail2"
+										onblur="judge();" placeholder="jane.doe@example.com">
+								</div>
+							</div>
+							<div class="col-lg-1">
+								<button type="submit" class="btn btn-default" id="submit"
+									disabled="disabled">提交</button>
+							</div>
+							<div class="col-md-12" style="margin-top: 20px;">
+								<textarea class="form-control" rows="5" cols="90"
+									placeholder="请输入您的意见..." style="font-size:20px;"
+									onblur="judge();" id="textarea"></textarea>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="footer" class="col-md-10"
+			style="color: white;text-align: center;font-size: 15px;">&copy;&nbsp;&nbsp;九江学院&nbsp;&nbsp;|&nbsp;&nbsp;信息科学与技术学院&nbsp;&nbsp;|&nbsp;&nbsp;信息A1612班&nbsp;&nbsp;王卓华</div>
+	</div>
+	<div style="position: fixed;bottom:30px;right:50px;width: 50px;height: 50px;" id="backTop">
+		<img src="../images/circle.png" id="circle" style="width: 50px;height: 50px;" title="回到顶部">
+	</div>
+</body>
+</html>
